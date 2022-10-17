@@ -13,6 +13,17 @@ import (
 
 func AddAddress() gin.HandlerFunc {
 
+	return func(c *gin.Context) {
+		userId := c.Query("id")
+		if user_id == "" {
+			c.Header("Content-Type", "application/json")
+			c.JSON(http.StatusNotFound, gin.H{"error": "invalid code"})
+			c.Abort()
+			return
+		}
+
+	}
+
 }
 
 func EditHomeAddress() gin.HandlerFunc {
